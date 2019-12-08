@@ -1,0 +1,26 @@
+#sidebar-container
+  max-height: 700px
+  height: calc(100vh - 40px)
+  width: 350px
+  border-radius: 30px 30px 0 0
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4)
+  margin: 20px 0
+  position: absolute
+  top: 0
+  left: 30px
+  bottom: 0
+  right: auto
+  background: #FFF
+
+  .inner
+    padding: 30px
+    height: 100%
+
+    table
+      color: #FFF
+      tr
+        & td, & th
+          padding: 5px 10px
+
+      tr:first-of-type
+        background: $primaryOrange
