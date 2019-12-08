@@ -16,7 +16,7 @@ class Map extends React.Component {
   handleApiLoaded = ({map, maps}) => {
     // activate drawing manager
     var drawingManager = new maps.drawing.DrawingManager({
-      drawingMode: maps.drawing.OverlayType.POLYGON,
+      drawingMode: null, // default to dragable hand
       drawingControl: true,
       drawingControlOptions: {
         position: maps.ControlPosition.TOP_CENTER,
@@ -31,7 +31,17 @@ class Map extends React.Component {
 
     drawingManager.setMap(map);
 
+    // load Philadelphia boundaries into map
     map.data.addGeoJson(philadelphiaGeoJson);
+
+    // fit maps to phila boundaries
+    let phillyBoundCoords = philadelphiaGeoJson.features[0].geometry.coordinates[0][0];
+    // create lat lng bounds
+    let bounds = new maps.LatLngBounds();
+    phillyBoundCoords.forEach(([lng, lat]) => {
+      bounds.extend({lat, lng});
+    });
+    map.fitBounds(bounds);
 
   }
 
