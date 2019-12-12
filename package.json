@@ -9,9 +9,13 @@
     "google-map-react": "^1.1.5",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
+    "openaddress-db-config": "github:Julian1729/territory-mapper-demo-db-config",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-redux": "^7.1.3",
+    "react-scripts": "3.3.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

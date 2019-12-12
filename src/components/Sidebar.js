@@ -1,6 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
+
+  handleCollectData = () => {
+
+    console.log('collecdData calles');
+
+  }
 
   render(){
     return (
@@ -18,7 +25,7 @@ export default class Sidebar extends React.Component {
           </table>
 
           <button>clear polygons</button>
-          <button>collect data</button>
+          <button onClick={this.handleCollectData}>collect data</button>
 
         </div>
 
@@ -27,3 +34,11 @@ export default class Sidebar extends React.Component {
   }
 
 }
+
+const mapStateToProps = state => (
+  {
+    polygons: state
+  }
+)
+
+export default connect(mapStateToProps)(Sidebar);
